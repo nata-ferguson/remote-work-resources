@@ -12,6 +12,76 @@ code {
     monospace;
 }
 
+.header {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("../public/cover.jpg");
+  background-size: cover;
+  height: 350px;
+  background-position: center;
+  color: white;
+  padding: 50px;
+  text-align: center;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 4rem;
+}
+
+.header h3 {
+  margin: 22px 0;
+  padding: 0;
+  font-size: 1.5rem;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px;
+}
+
+.search-bar {
+  width: 600px;
+  font-size: 18px;
+  padding: 20px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar::placeholder {
+  font-size: 18px;
+}
+
+.search-button {
+  padding: 10px 40px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-left: 20px;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
 .resource-list {
   display: flex;
   flex-wrap: wrap;

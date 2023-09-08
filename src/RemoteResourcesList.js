@@ -26,7 +26,6 @@ function RemoteResourcesList() {
 
   return (
     <div>
-      <h1>Remote Work Resources</h1>
       <div className="resource-list">
         {data.map((resource) => (
           <ResourceItem key={resource._id} resource={resource} />
