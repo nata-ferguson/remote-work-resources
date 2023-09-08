@@ -1,13 +1,56 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.resource-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 40px;
+}
+
+.resource-card {
+  width: 30%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 1% 0.5%;
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.resource-card:hover {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.resource-card a {
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.resource-card h1 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.resource-card h2 {
+  font-size: 1.2em;
+  color: #555;
+}
+
+.resource-card p {
+  color: #666;
+  font-size: 1.2em;
 }

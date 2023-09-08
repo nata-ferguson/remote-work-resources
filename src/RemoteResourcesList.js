@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
+import ResourceItem from "./ResourceItem";
+import "./index.css";
 
-const RemoteWorkResources = () => {
+function RemoteResourcesList() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // This will only run once
     fetch("https://remote-work-resources-api.vercel.app/api/remoteWorkResource")
       .then((response) => response.json())
       .then((json) => {
@@ -15,7 +18,7 @@ const RemoteWorkResources = () => {
         console.error("Error fetching data:", error);
         setIsLoading(false);
       });
-  }, []);
+  }, []); // Empty dependency array means this useEffect runs once when the component mounts
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -24,23 +27,13 @@ const RemoteWorkResources = () => {
   return (
     <div>
       <h1>Remote Work Resources</h1>
-      <ul>
+      <div className="resource-list">
         {data.map((resource) => (
-          <li key={resource._id}>
-            <a href={resource.url} target="_blank" rel="noopener noreferrer">
-              {resource.name}
-            </a>
-            <br />
-            <span>Region: {resource.region}</span>
-            <br />
-            <span>Category: {resource.category}</span>
-            <br />
-            <span>Description: {resource.description}</span>
-          </li>
+          <ResourceItem key={resource._id} resource={resource} />
         ))}
-      </ul>
+      </div>
     </div>
   );
-};
+}
 
-export default RemoteWorkResources;
+export default RemoteResourcesList;

@@ -1,10 +1,9 @@
-import "./App.css";
-import RemoteWorkResources from "./RemoteWorkResources";
+import RemoteResourcesList from "./RemoteResourcesList";
 
 function App() {
   return (
     <div className="App">
-      <RemoteWorkResources />
+      <RemoteResourcesList />
     </div>
   );
 }
