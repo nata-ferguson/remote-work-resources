@@ -24,8 +24,11 @@ function RemoteResourcesList({ searchQuery }) {
 
   // If there is a search query, filter the data based on it
   if (searchQuery) {
-    filteredData = data.filter((resource) =>
-      resource.name.toLowerCase().includes(searchQuery.toLowerCase())
+    filteredData = data.filter(
+      (resource) =>
+        resource.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        resource.region.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        resource.category.toLowerCase().includes(searchQuery.toLowerCase())
     );
   }
 

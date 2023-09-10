@@ -8,8 +8,8 @@ export default function ResourceItem({ resource }) {
           {resource.name}
         </a>
       </h1>
-      <h3>Region: {resource.region}</h3>
-      <h3>Category: {resource.category}</h3>
+      <h2>Region: {resource.region}</h2>
+      <h2>Category: {resource.category}</h2>
       <p>{resource.description}</p>
     </div>
   );
