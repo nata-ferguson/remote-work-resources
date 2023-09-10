@@ -3,8 +3,15 @@ import React, { useState } from "react";
 export default function SearchBar({ onSearch }) {
   const [query, setQuery] = useState("");
 
-  function handleSearch() {
-    onSearch(query);
+  function handleChange(e) {
+    const newQuery = e.target.value;
+
+    setQuery(newQuery);
+
+    // Automatically reset the data to its initial list if the query is empty
+    if (newQuery === "") {
+      onSearch("");
+    }
   }
 
   return (
@@ -14,9 +21,9 @@ export default function SearchBar({ onSearch }) {
         type="text"
         placeholder="Search for remote work resources..."
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={handleChange}
       />
-      <button className="search-button" onClick={handleSearch}>
+      <button className="search-button" onClick={() => onSearch(query)}>
         Search
       </button>
     </div>

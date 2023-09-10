@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ResourceItem from "./ResourceItem";
 import "./index.css";
 
-function RemoteResourcesList() {
+function RemoteResourcesList({ searchQuery }) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -20,6 +20,15 @@ function RemoteResourcesList() {
       });
   }, []); // Empty dependency array means this useEffect runs once when the component mounts
 
+  let filteredData = data;
+
+  // If there is a search query, filter the data based on it
+  if (searchQuery) {
+    filteredData = data.filter((resource) =>
+      resource.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -27,7 +36,7 @@ function RemoteResourcesList() {
   return (
     <div>
       <div className="resource-list">
-        {data.map((resource) => (
+        {filteredData.map((resource) => (
           <ResourceItem key={resource._id} resource={resource} />
         ))}
       </div>
