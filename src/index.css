@@ -125,3 +125,38 @@ code {
   color: #666;
   font-size: 1.2em;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+  padding: 20px;
+}
+
+.pagination button {
+  padding: 10px 30px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0 10px;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.pagination span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 0 20px;
+}
