@@ -11,6 +11,10 @@ function RemoteResourcesList({ searchQuery }) {
   //const [itemsPerPage, setItemsPerPage] = useState(9);
   const itemsPerPage = 9;
 
+  //search filters
+  const [selectedRegion, setSelectedRegion] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+
   useEffect(() => {
     // This will only run once
     fetch("https://remote-work-resources-api.vercel.app/api/remoteWorkResource")
@@ -28,14 +32,23 @@ function RemoteResourcesList({ searchQuery }) {
   let filteredData = data;
 
   // If there is a search query, filter the data based on it
-  if (searchQuery) {
-    filteredData = data.filter(
-      (resource) =>
-        resource.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        resource.region.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        resource.category.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-  }
+  // and filter data based on selected filters
+  // Each filter is independent, so if you don't set one (e.g., leave the search bar empty or don't select a region or category), that specific filter is effectively disabled.
+  filteredData = data.filter((resource) => {
+    const nameMatches = searchQuery
+      ? resource.name.toLowerCase().includes(searchQuery.toLowerCase())
+      : true; //If searchQuery is empty, it returns true, effectively disabling this filter.
+
+    const regionMatches = selectedRegion
+      ? resource.region === selectedRegion
+      : true;
+
+    const categoryMatches = selectedCategory
+      ? resource.category === selectedCategory
+      : true;
+
+    return nameMatches && regionMatches && categoryMatches;
+  });
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -53,6 +66,40 @@ function RemoteResourcesList({ searchQuery }) {
 
   return (
     <div>
+      <div>
+        <div className="filter-container">
+          <select
+            value={selectedRegion}
+            onChange={(e) => setSelectedRegion(e.target.value)}
+          >
+            <option value="">All Regions</option>
+            <option value="Global">Global</option>
+            <option value="UK">UK</option>
+            <option value="USA">USA</option>
+          </select>
+
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
+            <option value="">All Categories</option>
+            <option value="Freelance Marketplace">Freelance Marketplace</option>
+            <option value="Job Aggregator">Job Aggregator</option>
+            <option value="Job Board">Job Board</option>
+            <option value="Job Board & Company Reviews">
+              Job Board & Company Reviews
+            </option>
+            <option value="Job Search Engine">Job Search Engine</option>
+            <option value="Niche Job Board">Niche Job Board</option>
+            <option value="Professional Networking">
+              Professional Networking
+            </option>
+            <option value="Startup Job Board">Startup Job Board</option>
+            <option value="Tech Job Board">Tech Job Board</option>
+          </select>
+        </div>
+      </div>
+
       <div className="resource-list">
         {currentItems.map((resource) => (
           <ResourceItem key={resource._id} resource={resource} />
