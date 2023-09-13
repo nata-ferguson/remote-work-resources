@@ -19,7 +19,7 @@ export default function SearchBar({ onSearch }) {
       <input
         className="search-bar"
         type="text"
-        placeholder="Search for remote work resource name, region or category"
+        placeholder="Search for resource name, region or category"
         value={query}
         onChange={handleChange}
       />
