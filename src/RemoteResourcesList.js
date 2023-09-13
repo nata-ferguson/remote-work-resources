@@ -14,6 +14,7 @@ function RemoteResourcesList({ searchQuery }) {
   //search filters
   const [selectedRegion, setSelectedRegion] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedSpecialization, setSelectedSpecialization] = useState("");
 
   useEffect(() => {
     // This will only run once
@@ -47,7 +48,13 @@ function RemoteResourcesList({ searchQuery }) {
       ? resource.category === selectedCategory
       : true;
 
-    return nameMatches && regionMatches && categoryMatches;
+    const specializationMatches = selectedSpecialization
+      ? resource.specialization === selectedSpecialization
+      : true;
+
+    return (
+      nameMatches && regionMatches && categoryMatches && specializationMatches
+    );
   });
 
   if (isLoading) {
@@ -86,16 +93,20 @@ function RemoteResourcesList({ searchQuery }) {
             <option value="Freelance Marketplace">Freelance Marketplace</option>
             <option value="Job Aggregator">Job Aggregator</option>
             <option value="Job Board">Job Board</option>
-            <option value="Job Board & Company Reviews">
-              Job Board & Company Reviews
-            </option>
             <option value="Job Search Engine">Job Search Engine</option>
-            <option value="Niche Job Board">Niche Job Board</option>
-            <option value="Professional Networking">
-              Professional Networking
-            </option>
-            <option value="Startup Job Board">Startup Job Board</option>
-            <option value="Tech Job Board">Tech Job Board</option>
+          </select>
+
+          <select
+            value={selectedSpecialization}
+            onChange={(e) => setSelectedSpecialization(e.target.value)}
+          >
+            <option value="">All Specializations</option>
+            <option value="Design">Design</option>
+            <option value="General">General</option>
+            <option value="Social Impact">Social Impact</option>
+            <option value="Startups">Startups</option>
+            <option value="Technology">Technology</option>
+            <option value="Women">Women</option>
           </select>
         </div>
       </div>
