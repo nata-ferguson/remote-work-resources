@@ -16,6 +16,9 @@ function RemoteResourcesList({ searchQuery }) {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSpecialization, setSelectedSpecialization] = useState("");
 
+  //grid/list view
+  const [viewType, setViewType] = useState("grid");
+
   useEffect(() => {
     // This will only run once
     fetch("https://remote-work-resources-api.vercel.app/api/remoteWorkResource")
@@ -111,9 +114,18 @@ function RemoteResourcesList({ searchQuery }) {
         </div>
       </div>
 
-      <div className="resource-list">
+      <div className="view-type-buttons">
+        <button onClick={() => setViewType("grid")}>Grid View</button>
+        <button onClick={() => setViewType("list")}>List View</button>
+      </div>
+
+      <div className={`resource-list ${viewType}`}>
         {currentItems.map((resource) => (
-          <ResourceItem key={resource._id} resource={resource} />
+          <ResourceItem
+            key={resource._id}
+            resource={resource}
+            viewType={viewType}
+          />
         ))}
       </div>
 

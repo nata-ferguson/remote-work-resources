@@ -96,6 +96,28 @@ code {
   border-radius: 5px;
 }
 
+.view-type-buttons {
+  margin: 10px 80px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.view-type-buttons button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 25px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.view-type-buttons button:hover {
+  background-color: #0056b3;
+}
+
 .resource-list {
   display: flex;
   flex-wrap: wrap;
@@ -138,6 +160,22 @@ code {
 .resource-card p {
   color: #666;
   font-size: 1.2em;
+}
+
+.list-item {
+  width: 80%;
+  padding: 16px;
+  margin: 16px auto;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.list-item-meta {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.list-item-meta h2 {
+  margin-right: 20px;
 }
 
 .pagination {
@@ -231,5 +269,9 @@ code {
 
   .search-bar::placeholder {
     font-size: 14px;
+  }
+
+  .list-item {
+    width: 100%;
   }
 }
