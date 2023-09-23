@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ResourceItem from "./ResourceItem";
 import "./index.css";
+import gridIcon from "./grid.png";
+import listIcon from "./list.png";
 
 function RemoteResourcesList({ searchQuery }) {
   const [data, setData] = useState([]);
@@ -64,6 +66,12 @@ function RemoteResourcesList({ searchQuery }) {
     return <div>Loading...</div>;
   }
 
+  function clearResourseFilters() {
+    setSelectedRegion("");
+    setSelectedCategory("");
+    setSelectedSpecialization("");
+  }
+
   // Implementing pagination
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -111,12 +119,21 @@ function RemoteResourcesList({ searchQuery }) {
             <option value="Technology">Technology</option>
             <option value="Women">Women</option>
           </select>
+          <button className="clear-filters-btn" onClick={clearResourseFilters}>
+            Clear Filters
+          </button>
         </div>
       </div>
 
       <div className="view-type-buttons">
-        <button onClick={() => setViewType("grid")}>Grid View</button>
-        <button onClick={() => setViewType("list")}>List View</button>
+        <button onClick={() => setViewType("grid")}>
+          <img src={gridIcon} alt="grid view" width="20" height="20"></img>Grid
+          View
+        </button>
+        <button onClick={() => setViewType("list")}>
+          <img src={listIcon} alt="list view" width="20" height="20"></img>List
+          View
+        </button>
       </div>
 
       <div className={`resource-list ${viewType}`}>
