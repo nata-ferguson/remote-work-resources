@@ -3,6 +3,7 @@ import ResourceItem from "./ResourceItem";
 import "./index.css";
 import gridIcon from "./grid.png";
 import listIcon from "./list.png";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function RemoteResourcesList({ searchQuery }) {
   const [data, setData] = useState([]);
@@ -63,7 +64,12 @@ function RemoteResourcesList({ searchQuery }) {
   });
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="spinner-container">
+        <ClipLoader size={50} color={"#123abc"} loading={isLoading} />
+        <p>Loading...</p>
+      </div>
+    );
   }
 
   function clearResourseFilters() {
