@@ -5,6 +5,7 @@ export default function ResourceItem({ resource, viewType }) {
   //encoding the url and resource name for sharing
   const encodedURL = encodeURIComponent(currentURL);
   const encodedName = encodeURIComponent(resource.name);
+  const encodedDescription = encodeURIComponent(resource.description);
 
   return (
     <div className={`resource-card ${viewType === "list" ? "list-item" : ""}`}>
@@ -27,28 +28,21 @@ export default function ResourceItem({ resource, viewType }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Share on Facebook
+          Facebook
         </a>
         <a
-          href={`https://twitter.com/intent/tweet?text=${encodedName}&url=${encodedURL}`}
+          href={`https://twitter.com/intent/tweet?text=${encodedName}: ${encodedDescription}&url=${encodedURL}`}
           target="_blank"
           rel="noopener noreferrer"
         >
-          Share on Twitter
+          Twitter
         </a>
         <a
-          href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodedURL}&title=${encodedName}`}
+          href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodedURL}&title=${encodedName}&summary=${encodedDescription}`}
           target="_blank"
           rel="noopener noreferrer"
         >
-          Share on LinkedIn
-        </a>
-        <a
-          href={`whatsapp://send?text=${encodedName} ${encodedURL}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Share on WhatsApp
+          LinkedIn
         </a>
       </div>
     </div>
