@@ -205,6 +205,22 @@ button img {
   margin-right: 20px;
 }
 
+.social-sharing a {
+  margin-right: 10px;
+  color: #007bff;
+  text-decoration: none;
+  border: 1px solid #007bff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  transition: background-color 0.3s;
+}
+
+.social-sharing a:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
