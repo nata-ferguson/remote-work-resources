@@ -205,22 +205,6 @@ button img {
   margin-right: 20px;
 }
 
-.social-sharing a {
-  margin-right: 10px;
-  color: #007bff;
-  text-decoration: none;
-  border: 1px solid #007bff;
-  padding: 5px 10px;
-  border-radius: 4px;
-  font-size: 0.9em;
-  transition: background-color 0.3s;
-}
-
-.social-sharing a:hover {
-  background-color: #007bff;
-  color: #ffffff;
-}
-
 .pagination {
   display: flex;
   justify-content: center;
@@ -257,6 +241,9 @@ button img {
 }
 
 .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #333;
   color: #fff;
   text-align: center;
@@ -265,6 +252,22 @@ button img {
   bottom: 0;
   width: 100%;
   font-size: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px; /* spacing between icons */
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: #fff; /* Assuming white color for the SVG, adjust as needed */
+  transition: fill 0.3s; /* Smooth color transition on hover */
+}
+
+.icon:hover {
+  fill: #007bff; /* Color on hover */
 }
 
 .footer a {
