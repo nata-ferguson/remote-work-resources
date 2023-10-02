@@ -7,7 +7,7 @@ export default function Footer() {
         <a href="mailto:dev.nferguson@gmail.com">Natasha Ferguson</a>
       </p>
       <div className="social-icons">
-        {/* Facebook Icon and Share Link */}
+        <p>Share</p>
         <a
           href={`https://www.facebook.com/sharer/sharer.php?u=${siteURL}`}
           target="_blank"
@@ -15,7 +15,6 @@ export default function Footer() {
         >
           <i className="fa fa-facebook"></i>
         </a>
-        {/* Twitter Icon and Share Link */}
         <a
           href={`https://twitter.com/intent/tweet?url=${siteURL}`}
           target="_blank"
@@ -23,7 +22,6 @@ export default function Footer() {
         >
           <i className="fa fa-twitter"></i>
         </a>
-        {/* LinkedIn Icon and Share Link */}
         <a
           href={`https://www.linkedin.com/shareArticle?mini=true&url=${siteURL}`}
           target="_blank"
