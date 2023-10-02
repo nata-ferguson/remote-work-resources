@@ -97,6 +97,7 @@ function RemoteResourcesList({ searchQuery }) {
             onChange={(e) => setSelectedRegion(e.target.value)}
           >
             <option value="">All Regions</option>
+            <option value="Europe">Europe</option>
             <option value="Global">Global</option>
             <option value="UK">UK</option>
             <option value="USA">USA</option>
