@@ -1,6 +1,6 @@
 # remote work resources frontend
 
-https://remote-work-resources-2023.netlify.app/
+Check out Remote Work Resources React App using this link https://remote-work-resources-2023.netlify.app/
 
 Remote Work Resources is a dynamic web application curated to assist users in finding resources pertinent to remote work. The application is designed to allow users to search for, filter, and like different remote work resources, providing a user-friendly interface for ease of navigation and usability. Built using the data from the Remote Work Resources Public API that I developed. This API provides a collection of remote work resources, such as job boards, freelance platforms, and other useful links. It is publicly available, read-only, and does not require authentication. The API is built with Node.js, Express, and MongoDB.
 
